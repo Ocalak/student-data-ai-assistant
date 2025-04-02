@@ -1,5 +1,17 @@
 // Main application JavaScript for the AI Assistant
 
+let studentData = null;
+
+// Add this to the DOMContentLoaded event
+fetch('data/student_data.json')
+  .then(response => response.json())
+  .then(data => {
+    studentData = data;
+    console.log('Student data loaded successfully');
+  })
+  .catch(error => console.error('Error loading student data:', error));
+
+
 // Global variables
 let chart = null;
 
