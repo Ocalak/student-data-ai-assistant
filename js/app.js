@@ -1,22 +1,20 @@
 // Main application JavaScript for the AI Assistant
 
-let studentData = null;
-
-// Add this to the DOMContentLoaded event
-fetch('data/student_data.json')
-  .then(response => response.json())
-  .then(data => {
-    studentData = data;
-    console.log('Student data loaded successfully');
-  })
-  .catch(error => console.error('Error loading student data:', error));
-
-
 // Global variables
 let chart = null;
+let studentData = null;
 
 // DOM elements
 document.addEventListener('DOMContentLoaded', () => {
+    // Load student data
+    fetch('data/student_data.json')
+        .then(response => response.json())
+        .then(data => {
+            studentData = data;
+            console.log('Student data loaded successfully');
+        })
+        .catch(error => console.error('Error loading student data:', error));
+
     const chatContainer = document.getElementById('chat-container');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
@@ -133,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function processQuestion(question) {
         // Use the backend service to process the question
         const backendService = new window.AIBackendService();
-        return await backendService.processQuestion(question);
+        return await backendService.processQuestion(question, studentData);
     }
 
     // Function to show visualization
