@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data AI Assistant</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Add Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-center text-blue-600">Student Data AI Assistant</h1>
+            <p class="text-center text-gray-600 mt-2">Ask questions about student performance data and get AI-powered insights</p>
+        </header>
+
+        <main class="bg-white rounded-lg shadow-lg p-6 max-w-4xl mx-auto">
+            <div class="chat-container mb-6 h-96 overflow-y-auto border border-gray-200 rounded-lg p-4" id="chat-container">
+                <div class="message assistant">
+                    <div class="message-content bg-blue-100 p-3 rounded-lg inline-block max-w-3xl">
+                        <p>Hello! I'm your Student Data AI Assistant. You can ask me questions about student performance, exercise difficulty, or time spent on exercises.</p>
+                        <p class="text-sm text-gray-600 mt-1">Example questions:</p>
+                        <ul class="text-sm text-gray-600 list-disc pl-5">
+                            <li>Which student has the highest average score?</li>
+                            <li>What is the most difficult exercise?</li>
+                            <li>How does time spent correlate with scores?</li>
+                            <li>Show me the performance trend for student S01</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-container mb-6 hidden">
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold mb-2" id="visualization-title">Visualization</h3>
+                    <canvas id="visualization-canvas" width="400" height="300"></canvas>
+                </div>
+            </div>
+
+            <div class="input-container flex">
+                <input type="text" id="user-input" class="flex-grow border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ask a question...">
+                <button id="send-button" class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </main>
+
+        <footer class="mt-8 text-center text-gray-600 text-sm">
+            <p>Student Data AI Assistant &copy; 2025</p>
+            <p class="mt-1">Powered by GitHub Pages and OpenAI</p>
+        </footer>
+    </div>
+
+    <script src="js/backend-service.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
