@@ -1,4 +1,5 @@
 // Backend integration for the AI Assistant
+// This file handles communication with external AI services
 
 class AIBackendService {
     constructor() {
@@ -13,13 +14,10 @@ class AIBackendService {
     /**
      * Process a user question and get an AI response
      * @param {string} question - The user's question
+     * @param {object} studentData - The student data to analyze
      * @returns {Promise} - Promise resolving to the AI response
      */
-    async processQuestion(question) {
-        // In the processQuestion function
-        const backendService = new window.AIBackendService();
-        return await backendService.processQuestion(question, studentData);
-
+    async processQuestion(question, studentData) {
         if (this.useMockResponses) {
             return this.getMockResponse(question);
         }
